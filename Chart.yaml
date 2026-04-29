@@ -1,5 +1,5 @@
 apiVersion: v2
-name: flask-demo-2-chart
+name: flask-demo-2
 description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
