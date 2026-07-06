@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  host: {{ .Release.Name }}
+  subsets:
+    - name: stable
+      labels: {}
+    - name: canary
+      labels: {}

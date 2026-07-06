@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  hosts:
+    - {{ .Values.host }}
+  gateways:
+    - istio-ingress/shared-gateway
+    - mesh
+  http:
+    - name: primary
+      route:
+        - destination:
+            host: {{ .Release.Name }}
+            subset: stable
+          weight: 100
+        - destination:
+            host: {{ .Release.Name }}
+            subset: canary
+          weight: 0
